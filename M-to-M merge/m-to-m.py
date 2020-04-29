@@ -29,7 +29,7 @@ def calc(x):
 df2018a = df2018.groupby(["NC入账时间", "原值"]).apply(calc).reset_index()
 df2018a = df2018a.rename(columns={"level_2": "索引号"})
 # 组内予以升序编号; 但是运行偏慢;
-
+# df2018.groupby(["NC入账时间", "原值"]).cumcount() is OK
 
 df4 = pd.read_excel("固定资产.xlsx", sheet_name=4, header=1)
 df4 = df4.drop(columns=['Excel名'])
